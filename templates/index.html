@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI API Call</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Describe a Diagram</h1>
+        <form action="/" method="POST">
+            <input type="text" name="user_input" placeholder="Enter your input" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if response %}
+        <div class="response">
+            <h2>Generated LaTeX Code:</h2>
+            <pre>{{ response }}</pre>
+        </div>
+        {% endif %}
+        {% if file_path %}
+        <div class="image">
+            <h2>Rendered Diagram:</h2>
+            <img src="{{ url_for('uploaded_file', filename=file_path) }}" alt="Rendered TikZ Diagram">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
