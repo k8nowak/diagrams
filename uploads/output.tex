@@ -2,11 +2,21 @@
 \usepackage{tikz}
 
 \begin{document}
+
 \begin{tikzpicture}
-    \draw (0,0) -- (10,0);
-    \draw[fill=gray] (0,0) rectangle (6,1);
-    \node at (3,0.5) {12};
-    \draw[fill=lightgray] (6,0) rectangle (10,1);
-    \node at (8,0.5) {x};
+    % Draw the box plot
+    \draw (2,0) -- (10,0); % Whisker line
+    \draw (2,0.3) -- (2,-0.3); % Minimum
+    \draw (10,0.3) -- (10,-0.3); % Maximum
+    
+    \draw (2.5,0.3) -- (2.5,-0.3); % Q1
+    \draw (2.5,0.3) -- (8.5,0.3); % Box top line
+    \draw (2.5,-0.3) -- (8.5,-0.3); % Box bottom line
+    \draw (8.5,0.3) -- (8.5,-0.3); % Q3
+    
+    \draw (4,0.4) -- (4,-0.4); % Median
+    \draw (2,0) -- (2.5,0); % Left whisker
+    \draw (8.5,0) -- (10,0); % Right whisker
 \end{tikzpicture}
+
 \end{document}

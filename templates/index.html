@@ -3,28 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI API Call</title>
+    <title>create a diagram from a description</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="header-container">
         <h1>Describe a Diagram</h1>
-        <form action="/" method="POST">
-            <input type="text" name="user_input" placeholder="Enter your input" required>
-            <button type="submit">Submit</button>
+        <form action="/" method="POST" id="input-form">
+            <input type="text" name="user_input" id="dynamic-placeholder" placeholder="graph of y=-x^2+1" required value="{{ user_input if user_input else '' }}">
+            <div class="button-container">
+                <button type="submit">Submit</button>
+                <button type="button" id="reset-button">Reset</button>
+            </div>
         </form>
-        {% if response %}
-        <div class="response">
-            <h2>Generated LaTeX Code:</h2>
-            <pre>{{ response }}</pre>
+    </div>
+    
+    <div class="container">
+        {% if file_path %}
+        <div class="image" id="image-container">
+            <h2>Rendered Diagram:</h2>
+            <img id="diagram-image" src="{{ url_for('uploaded_file', filename=file_path) }}" alt="Rendered TikZ Diagram" class="fixed-size">
         </div>
         {% endif %}
-        {% if file_path %}
-        <div class="image">
-            <h2>Rendered Diagram:</h2>
-            <img src="{{ url_for('uploaded_file', filename=file_path) }}" alt="Rendered TikZ Diagram">
+        {% if response %}
+        <div class="response" id="response-container">
+            <h2>Generated LaTeX Code:</h2>
+            <pre id="latex-code">{{ response }}</pre>
         </div>
         {% endif %}
     </div>
+
+    <script>
+        document.getElementById('reset-button').addEventListener('click', function() {
+            document.getElementById('input-form').reset();
+            document.getElementById('dynamic-placeholder').value = '';
+            document.getElementById('latex-code').innerText = '';
+            const diagramImage = document.getElementById('diagram-image');
+            if (diagramImage) {
+                diagramImage.style.display = 'none';
+            }
+            const imageContainer = document.getElementById('image-container');
+            if (imageContainer) {
+                imageContainer.style.display = 'none';
+            }
+            const responseContainer = document.getElementById('response-container');
+            if (responseContainer) {
+                responseContainer.style.display = 'none';
+            }
+        });
+
+        const placeholders = [
+            "graph of y=-x^2+1",
+            "circle with radius labeled 5",
+            "isosceles right triangle with horizontal hypotenuse",
+            "number line from -100 to 100, labeled at intervals of 20",
+            "graphic organizer with 1 large oval and 3 small ovals"
+        ];
+        let index = 0;
+        const inputElement = document.getElementById('dynamic-placeholder');
+
+        setInterval(() => {
+            index = (index + 1) % placeholders.length;
+            inputElement.placeholder = placeholders[index];
+        }, 3000); // Change placeholder every 3 seconds
+    </script>
 </body>
 </html>

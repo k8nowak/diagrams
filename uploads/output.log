@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.5)  6 JUL 2024 12:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.5)  6 JUL 2024 15:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,27 +420,25 @@ e
 
 [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(uploads/output.aux)
+] (uploads/output.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 12303 strings out of 473584
- 257870 string characters out of 5728329
- 1927905 words of memory out of 5000000
- 35005 multiletter control sequences out of 15000+600000
+ 12281 strings out of 473584
+ 257430 string characters out of 5728329
+ 1926905 words of memory out of 5000000
+ 34984 multiletter control sequences out of 15000+600000
  558069 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,7n,107p,395b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+ 102i,5n,107p,395b,380s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on uploads/output.pdf (1 page, 10490 bytes).
+Output written on uploads/output.pdf (1 page, 1157 bytes).
 PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 11 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
