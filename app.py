@@ -6,7 +6,7 @@ import subprocess
 
 load_dotenv()
 api_key = os.getenv('API_KEY')
-use_model = 'gpt-4o'
+use_model = 'gpt-3.5-turbo'
 
 client = OpenAI(api_key=api_key)
 
